@@ -12,6 +12,11 @@ data[, c("Date")] <- as.Date(data$Date, "%d/%m/%Y")
 data$Time <- strptime(x <- as.character(data$Time), format <- "%H:%M:%S")
 data$DateTime <- strptime(x <- as.character(data$DateTime), format <- "%d/%m/%Y %H:%M:%S")
 
+png("plot1.png", width = 480, height = 480)
+hist(data$Global_active_power, col="red", main="Global Active Power", 
+     xlab="Global Active Power (kilowatts)", ylab="Frequency")
+dev.off()
+
 sapply(data, class)
 head(data)
 
