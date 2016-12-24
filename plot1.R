@@ -17,6 +17,4 @@ hist(data$Global_active_power, col="red", main="Global Active Power",
      xlab="Global Active Power (kilowatts)", ylab="Frequency")
 dev.off()
 
-sapply(data, class)
-head(data)
 
