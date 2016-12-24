@@ -5,9 +5,13 @@ data <- read.csv(fileName, header = TRUE, sep=";", stringsAsFactors = FALSE,
                          na.strings = "?",
                          colClasses = c("character","character","numeric","numeric","numeric","numeric",
                                         "numeric","numeric","numeric"))
+data <- data[data$Date %in% c("1/2/2007","2/2/2007"),]
+
 data[,c("DateTime")] <- paste0(data[,c("Date")]," ",data[,c("Time")])
 data[, c("Date")] <- as.Date(data$Date, "%d/%m/%Y")
 data$Time <- strptime(x <- as.character(data$Time), format <- "%H:%M:%S")
 data$DateTime <- strptime(x <- as.character(data$DateTime), format <- "%d/%m/%Y %H:%M:%S")
+
 sapply(data, class)
 head(data)
+
